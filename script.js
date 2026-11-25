@@ -1,21 +1,4 @@
 const carouselSlides = {
-  desempleo: [
-    { file: "1 (1).png", alt: "Portada de la columna «Que el desempleo no nos enferme», de Maycol Gómez Vergara." },
-    { file: "2 (1).png", alt: "Síntomas de depresión y ansiedad entre personas ocupadas y quienes buscan trabajo." },
-    { file: "3 (1).png", alt: "Relación entre la deuda de los hogares, la depresión y el insomnio." },
-    { file: "4 (1).png", alt: "Desempleo, duración de la búsqueda laboral y endeudamiento de los hogares." },
-    { file: "5 (1).png", alt: "Desempleo regional y diferencias de salud mental entre mujeres y hombres." },
-    { file: "6 (1).png", alt: "Propuestas de empleo, alivio financiero y atención de salud mental." },
-    { file: "7 (1).png", alt: "Presentación de Maycol Gómez Vergara, autor de la columna." },
-  ],
-  calle: [
-    { file: "1.jpeg", alt: "Portada de la columna de Yanino Riquelme «Noviembre en la calle»." },
-    { file: "2.jpeg", alt: "La movilización social como respuesta al costo de la vida y a demandas pendientes." },
-    { file: "3.jpeg", alt: "Análisis de las respuestas institucionales ante el descontento y las protestas." },
-    { file: "4.jpeg", alt: "Una democracia sólida escucha las demandas y las traduce en respuestas concretas." },
-    { file: "5.jpeg", alt: "La responsabilidad del Gobierno frente a las familias trabajadoras y sus demandas." },
-    { file: "6.jpeg", alt: "Presentación de Yanino Riquelme, autor de la columna." },
-  ],
   combustibles: [
     { file: "1.png", alt: "Portada sobre las alzas del combustible y su impacto en el costo de la vida." },
     { file: "2.png", alt: "Aumentos de gasolina y diésel, y su efecto en el precio de los combustibles." },
@@ -54,8 +37,6 @@ const carouselSlides = {
 };
 
 const carouselPath = {
-  desempleo: "Redes sociales/Carrusel 5/",
-  calle: "Redes sociales/Carrusel 4/",
   combustibles: "Redes sociales/Carrusel 3/",
   empleo: "Redes sociales/Carrusel 1/",
   seguridad: "Redes sociales/Carrusel 2/",
@@ -116,6 +97,14 @@ document.querySelectorAll(".info-dialog").forEach((dialog) => {
     dialogOpener?.focus();
     dialogOpener = null;
   });
+});
+
+const contactForm = document.querySelector("#contact-form");
+const contactFormNotice = document.querySelector("#contact-form-notice");
+
+contactForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  contactFormNotice.textContent = "El formulario no está conectado a una hoja de cálculo; tus datos no se enviaron.";
 });
 
 const menuToggle = document.querySelector(".menu-toggle");

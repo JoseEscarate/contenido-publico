@@ -940,6 +940,123 @@ button {
   background: var(--ochre);
 }
 
+.contact-section {
+  width: 100%;
+  max-width: none;
+  padding-inline: max(var(--gutter), calc((100% - var(--content)) / 2));
+  background: #f0eee8;
+}
+
+.contact-section > .section-heading,
+.contact-layout {
+  width: min(100%, var(--content));
+  margin-inline: auto;
+}
+
+.contact-section > .section-heading {
+  margin-bottom: 2rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.contact-form-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-form-fields label {
+  display: grid;
+  min-width: 0;
+  gap: 0.4rem;
+  color: var(--navy);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.contact-field--wide {
+  grid-column: 1 / -1;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--navy);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form-notice {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid var(--ochre);
+  border-radius: 0 10px 10px 0;
+  background: #fff7e8;
+  color: var(--muted);
+  font-size: 0.77rem;
+}
+
+.contact-form .button:disabled {
+  margin-top: 0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.contact-form .button:disabled:hover {
+  transform: none;
+  background: var(--navy);
+}
+
+.contact-channel {
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border-radius: var(--radius);
+  background: var(--navy);
+  color: var(--surface);
+}
+
+.contact-channel .section-kicker {
+  color: #b7dedd;
+}
+
+.contact-channel h3 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.contact-channel > p:not(.section-kicker) {
+  margin: 0.75rem 0 0;
+  color: #e2e1eb;
+  font-size: 0.88rem;
+}
+
 .archive-section {
   padding-block: clamp(4rem, 8vw, 7rem);
 }
@@ -1590,6 +1707,10 @@ button {
     grid-column: 2;
   }
 
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
   .carousels {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1684,6 +1805,19 @@ button {
 
   .calls-state {
     grid-column: auto;
+  }
+
+  .contact-form-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-field--wide {
+    grid-column: auto;
+  }
+
+  .contact-form .button,
+  .contact-channel .button {
+    width: 100%;
   }
 
   .activity-notice {
