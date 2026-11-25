@@ -959,7 +959,7 @@ button {
 
 .contact-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: stretch;
   gap: 1.25rem;
 }
@@ -1050,30 +1050,6 @@ button {
 .contact-form .button:disabled:hover {
   transform: none;
   background: var(--navy);
-}
-
-.contact-channel {
-  padding: clamp(1.4rem, 3vw, 2.2rem);
-  border-radius: var(--radius);
-  background: var(--navy);
-  color: var(--surface);
-}
-
-.contact-channel .section-kicker {
-  color: #b7dedd;
-}
-
-.contact-channel h3 {
-  margin: 0;
-  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-  letter-spacing: -0.04em;
-  line-height: 1.2;
-}
-
-.contact-channel > p:not(.section-kicker) {
-  margin: 0.75rem 0 0;
-  color: #e2e1eb;
-  font-size: 0.88rem;
 }
 
 .archive-section {
@@ -1726,10 +1702,6 @@ button {
     grid-column: 2;
   }
 
-  .contact-layout {
-    grid-template-columns: 1fr;
-  }
-
   .carousels {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1834,8 +1806,7 @@ button {
     grid-column: auto;
   }
 
-  .contact-form .button,
-  .contact-channel .button {
+  .contact-form .button {
     width: 100%;
   }
 
