@@ -101,10 +101,91 @@ document.querySelectorAll(".info-dialog").forEach((dialog) => {
 
 const contactForm = document.querySelector("#contact-form");
 const contactFormNotice = document.querySelector("#contact-form-notice");
+const contactSubmitButton = contactForm.querySelector('button[type="submit"]');
+const contactRequestIdInput = contactForm.querySelector("#contact-request-id");
+const contactResponseFrame = document.querySelector("#contact-response-frame");
+const contactEndpoint = contactForm.dataset.endpoint.trim();
+const contactEndpointIsConfigured = /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(contactEndpoint);
+let pendingContactRequestId = null;
+let contactResponseTimer = null;
+
+contactSubmitButton.disabled = !contactEndpointIsConfigured;
+
+if (contactEndpointIsConfigured) {
+  contactForm.action = contactEndpoint;
+  contactSubmitButton.textContent = "Enviar consulta";
+  contactFormNotice.dataset.state = "ready";
+  contactFormNotice.textContent = "Tus datos se enviarán a la hoja de Contactos para responder a esta consulta.";
+}
+
+function createContactRequestId() {
+  if (window.crypto && typeof window.crypto.randomUUID === "function") {
+    return window.crypto.randomUUID();
+  }
+
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
 
 contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  contactFormNotice.textContent = "El formulario no está conectado a una hoja de cálculo; tus datos no se enviaron.";
+
+  if (!contactEndpointIsConfigured) {
+    contactFormNotice.dataset.state = "error";
+    contactFormNotice.textContent = "El formulario todavía no está conectado a Google Sheets; tus datos no se enviaron.";
+    return;
+  }
+
+  const requestId = createContactRequestId();
+  pendingContactRequestId = requestId;
+  contactRequestIdInput.value = requestId;
+  contactSubmitButton.disabled = true;
+  contactSubmitButton.textContent = "Enviando...";
+  contactFormNotice.dataset.state = "pending";
+  contactFormNotice.textContent = "Enviando tu consulta...";
+
+  contactResponseTimer = window.setTimeout(() => {
+    if (pendingContactRequestId !== requestId) return;
+
+    pendingContactRequestId = null;
+    contactSubmitButton.disabled = false;
+    contactSubmitButton.textContent = "Enviar consulta";
+    contactFormNotice.dataset.state = "error";
+    contactFormNotice.textContent = "No recibimos confirmación del envío. No podemos verificar si se guardó; antes de reenviar, contáctanos por Instagram para evitar duplicados.";
+  }, 15000);
+
+  HTMLFormElement.prototype.submit.call(contactForm);
+});
+
+window.addEventListener("message", (event) => {
+  const isGoogleOrigin = event.origin === "https://script.google.com" ||
+    event.origin.endsWith(".googleusercontent.com");
+
+  if (
+    !isGoogleOrigin ||
+    event.source !== contactResponseFrame.contentWindow ||
+    !pendingContactRequestId ||
+    !event.data ||
+    event.data.type !== "contenido-publico-contact-response" ||
+    event.data.requestId !== pendingContactRequestId
+  ) {
+    return;
+  }
+
+  window.clearTimeout(contactResponseTimer);
+  contactResponseTimer = null;
+  pendingContactRequestId = null;
+  contactSubmitButton.disabled = false;
+  contactSubmitButton.textContent = "Enviar consulta";
+
+  if (event.data.ok) {
+    contactForm.reset();
+    contactFormNotice.dataset.state = "success";
+    contactFormNotice.textContent = event.data.message || "Recibimos tu consulta. Gracias.";
+    return;
+  }
+
+  contactFormNotice.dataset.state = "error";
+  contactFormNotice.textContent = event.data.message || "No se pudo procesar la consulta. Inténtalo nuevamente.";
 });
 
 const menuToggle = document.querySelector(".menu-toggle");

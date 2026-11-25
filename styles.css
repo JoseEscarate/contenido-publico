@@ -1022,6 +1022,25 @@ button {
   font-size: 0.77rem;
 }
 
+.contact-form-notice[data-state="success"] {
+  border-left-color: #28734e;
+  background: #edf8f1;
+}
+
+.contact-form-notice[data-state="error"] {
+  border-left-color: var(--red);
+  background: #fff0f1;
+}
+
+.contact-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 .contact-form .button:disabled {
   margin-top: 0;
   cursor: not-allowed;
