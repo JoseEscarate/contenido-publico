@@ -162,7 +162,6 @@ window.addEventListener("message", (event) => {
 
   if (
     !isGoogleOrigin ||
-    event.source !== contactResponseFrame.contentWindow ||
     !pendingContactRequestId ||
     !event.data ||
     event.data.type !== "contenido-publico-contact-response" ||

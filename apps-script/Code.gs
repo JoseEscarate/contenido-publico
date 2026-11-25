@@ -146,7 +146,7 @@ function responsePage_(requestId, ok, message) {
     message: message,
   }).replace(/</g, "\\u003c");
   var html = "<!doctype html><html><head><meta charset=\"utf-8\"></head><body><script>" +
-    "window.parent.postMessage(" + payload + ", \"*\");" +
+    "window.top.postMessage(" + payload + ", \"*\");" +
     "</script></body></html>";
 
   return HtmlService.createHtmlOutput(html)
