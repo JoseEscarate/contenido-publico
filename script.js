@@ -1,4 +1,33 @@
 const carouselSlides = {
+  desempleo: [
+    { file: "1 (1).png", alt: "Portada de la columna «Que el desempleo no nos enferme», de Maycol Gómez Vergara." },
+    { file: "2 (1).png", alt: "Síntomas de depresión y ansiedad entre personas ocupadas y quienes buscan trabajo." },
+    { file: "3 (1).png", alt: "Relación entre la deuda de los hogares, la depresión y el insomnio." },
+    { file: "4 (1).png", alt: "Desempleo, duración de la búsqueda laboral y endeudamiento de los hogares." },
+    { file: "5 (1).png", alt: "Desempleo regional y diferencias de salud mental entre mujeres y hombres." },
+    { file: "6 (1).png", alt: "Propuestas de empleo, alivio financiero y atención de salud mental." },
+    { file: "7 (1).png", alt: "Presentación de Maycol Gómez Vergara, autor de la columna." },
+  ],
+  calle: [
+    { file: "1.jpeg", alt: "Portada de la columna de Yanino Riquelme «Noviembre en la calle»." },
+    { file: "2.jpeg", alt: "La movilización social como respuesta al costo de la vida y a demandas pendientes." },
+    { file: "3.jpeg", alt: "Análisis de las respuestas institucionales ante el descontento y las protestas." },
+    { file: "4.jpeg", alt: "Una democracia sólida escucha las demandas y las traduce en respuestas concretas." },
+    { file: "5.jpeg", alt: "La responsabilidad del Gobierno frente a las familias trabajadoras y sus demandas." },
+    { file: "6.jpeg", alt: "Presentación de Yanino Riquelme, autor de la columna." },
+  ],
+  combustibles: [
+    { file: "1.png", alt: "Portada sobre las alzas del combustible y su impacto en el costo de la vida." },
+    { file: "2.png", alt: "Aumentos de gasolina y diésel, y su efecto en el precio de los combustibles." },
+    { file: "3.png", alt: "Cómo el MEPCO amortigua las variaciones del precio internacional del petróleo." },
+    { file: "4.png", alt: "Efecto del precio del diésel en el transporte, los alimentos y las empresas regionales." },
+    { file: "5.png", alt: "Propuesta de tope al precio del combustible y estimaciones de impacto fiscal." },
+    { file: "6.png", alt: "Críticas parlamentarias a la propuesta de limitar el alza de los combustibles." },
+    { file: "7.png", alt: "Propuestas para proteger los hogares, el transporte y las regiones." },
+    { file: "8.png", alt: "Movilización de transportistas en la Ruta 68 por el costo de los combustibles." },
+    { file: "9.png", alt: "Indicadores de opinión pública y malestar asociado al costo de la vida." },
+    { file: "10.jpg", alt: "Cierre del análisis sobre combustibles y su impacto en la economía regional." },
+  ],
   empleo: [
     { file: "01-portada.png", alt: "Portada del carrusel de empleo: Chile supera el millón de personas desocupadas." },
     { file: "02-desocupados.png", alt: "Lámina 2 del carrusel de empleo de Valparaíso y Chile." },
@@ -25,6 +54,9 @@ const carouselSlides = {
 };
 
 const carouselPath = {
+  desempleo: "Redes sociales/Carrusel 5/",
+  calle: "Redes sociales/Carrusel 4/",
+  combustibles: "Redes sociales/Carrusel 3/",
   empleo: "Redes sociales/Carrusel 1/",
   seguridad: "Redes sociales/Carrusel 2/",
 };
@@ -57,30 +89,6 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     showSlide(currentIndex + 1);
   });
 });
-
-const formatFilter = document.querySelector("#format-filter");
-const disciplineFilter = document.querySelector("#discipline-filter");
-const eventCards = [...document.querySelectorAll(".event-card")];
-const eventEmpty = document.querySelector("#event-empty");
-const eventStatus = document.querySelector("#event-status");
-
-function filterEvents() {
-  let visibleCount = 0;
-
-  for (const card of eventCards) {
-    const matchesFormat = formatFilter.value === "all" || card.dataset.format === formatFilter.value;
-    const matchesDiscipline = disciplineFilter.value === "all" || card.dataset.discipline === disciplineFilter.value;
-    const isVisible = matchesFormat && matchesDiscipline;
-    card.hidden = !isVisible;
-    if (isVisible) visibleCount += 1;
-  }
-
-  eventEmpty.hidden = visibleCount > 0;
-  eventStatus.textContent = `${visibleCount} ${visibleCount === 1 ? "actividad publicada" : "actividades publicadas"}`;
-}
-
-formatFilter.addEventListener("change", filterEvents);
-disciplineFilter.addEventListener("change", filterEvents);
 
 let dialogOpener = null;
 
@@ -132,9 +140,14 @@ siteNavigation.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+  if (event.key !== "Escape") return;
+
+  if (menuToggle.getAttribute("aria-expanded") === "true") {
     closeMenu({ returnFocus: true });
+    return;
   }
+
+  document.querySelector(".info-dialog[open]")?.close();
 });
 
 document.querySelector("#current-year").textContent = new Date().getFullYear();

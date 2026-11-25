@@ -29,7 +29,7 @@
           <a href="#convocatorias">Convocatorias</a>
           <a href="#archivo-comunitario">Archivo Comunitario</a>
           <a href="#nosotros">Nosotros</a>
-          <a class="nav-cta" href="#cartelera">Participar / Inscribirse <span aria-hidden="true">↗</span></a>
+          <a class="nav-cta" href="#cartelera">Consultar cartelera <span aria-hidden="true">↗</span></a>
         </nav>
       </div>
     </header>
@@ -45,8 +45,8 @@
             <p class="hero-summary">La victimización bajó en diez años, pero la percepción de que la delincuencia aumentó sigue alta. Una mirada al miedo al delito en Chile y a sus propias dinámicas.</p>
             <a class="button button-primary" href="#carrusel-seguridad">Explorar el informe <span aria-hidden="true">↓</span></a>
             <a class="hero-event-link" href="#cartelera">
-              <span class="hero-event-icon" aria-hidden="true">↗</span>
-              <span><strong>Próximo taller</strong><small>Salario, costo de la vida e inflación · 14 de noviembre</small></span>
+              <span class="hero-event-icon" aria-hidden="true">→</span>
+              <span><strong>Cartelera y talleres</strong><small>No hay actividades vigentes · revisa las novedades</small></span>
             </a>
           </div>
           <div class="hero-data" aria-label="Victimización y percepción de delincuencia en 2025">
@@ -74,49 +74,14 @@
           </div>
           <p>Actividades confirmadas del centro. Consulta directamente por cupos, costo e inscripción cuando esos datos no aparezcan en la publicación.</p>
         </div>
-        <div class="event-filters" aria-label="Filtrar actividades">
-          <label>
-            <span>Formato</span>
-            <select id="format-filter" aria-label="Filtrar por formato">
-              <option value="all">Todos los formatos</option>
-              <option value="presencial">Presencial</option>
-              <option value="itinerante">Itinerante</option>
-              <option value="virtual">Virtual</option>
-            </select>
-          </label>
-          <label>
-            <span>Disciplina</span>
-            <select id="discipline-filter" aria-label="Filtrar por disciplina">
-              <option value="all">Todas las disciplinas</option>
-              <option value="formacion-social">Formación sindical y social</option>
-              <option value="economia">Economía</option>
-              <option value="seguridad">Seguridad pública</option>
-              <option value="gestion-cultural">Gestión cultural</option>
-            </select>
-          </label>
-        </div>
-        <p class="event-status" id="event-status" aria-live="polite">1 actividad publicada</p>
-        <div class="events-grid" id="events-grid">
-          <article class="event-card" data-format="presencial" data-discipline="formacion-social">
-            <a class="event-poster" href="Taller%201.jpeg" target="_blank" rel="noopener" aria-label="Abrir afiche original del taller Salario, costo de la vida e inflación">
-              <img src="Taller%201.jpeg" alt="Afiche del taller Salario, costo de la vida e inflación. Sábado 14 de noviembre de 2026, de 9:30 a 13:30, en AFUMUVI, avenida Valparaíso 765." fetchpriority="high" decoding="async">
-              <span class="poster-open" aria-hidden="true">↗</span>
-            </a>
-            <div class="event-content">
-              <div class="event-tags"><span>Presencial</span><span>Formación sindical y social</span></div>
-              <h3>Taller: salario, costo de la vida e inflación</h3>
-              <p>Formación para la acción sindical y social.</p>
-              <dl class="event-details">
-                <div><dt>Fecha</dt><dd><time datetime="2026-11-14">Sábado 14 de noviembre de 2026</time> · 9:30–13:30 hrs.</dd></div>
-                <div><dt>Lugar</dt><dd>AFUMUVI, Av. Valparaíso #765</dd></div>
-                <div><dt>Cupos</dt><dd>No indicados en el afiche</dd></div>
-                <div><dt>Costo</dt><dd>No indicado en el afiche</dd></div>
-              </dl>
-              <button class="text-link event-register-trigger" type="button" data-dialog-open="event-registration">Consultar inscripción <span aria-hidden="true">↗</span></button>
-            </div>
-          </article>
-        </div>
-        <p class="event-empty" id="event-empty" hidden>No hay actividades publicadas con estos filtros. Prueba otra categoría o vuelve a consultar la cartelera.</p>
+        <aside class="activity-notice" aria-labelledby="activity-notice-title">
+          <span class="activity-notice-icon" aria-hidden="true">i</span>
+          <div>
+            <h3 id="activity-notice-title">No hay actividades vigentes</h3>
+            <p>El taller de salario, costo de la vida e inflación, programado para el <time datetime="2026-11-14">14 de noviembre de 2026</time>, fue suspendido. Las próximas actividades se anunciarán aquí y en Instagram.</p>
+          </div>
+          <a class="text-link" href="https://www.instagram.com/contenidopublico.valparaiso/" target="_blank" rel="noopener noreferrer">Ver novedades <span aria-hidden="true">↗</span></a>
+        </aside>
       </section>
 
       <section class="section studies" id="estudios" aria-labelledby="studies-title">
@@ -177,7 +142,7 @@
               <h3>Es hora de pensar en las personas</h3>
               <p>Maycol Gomez Vergara analiza el costo de la vida, el empleo regional y alternativas de inversión pública, entre ellas un royalty portuario y proyectos de electromovilidad.</p>
               <blockquote>“El mes es largo y la plata corta.”</blockquote>
-              <p class="column-author">Maycol Gomez Vergara</p>
+              <p class="column-author">Maycol Gómez Vergara</p>
               <a class="text-link" href="Columna%201.docx" target="_blank" rel="noopener">Leer columna <span aria-hidden="true">↗</span></a>
             </div>
           </article>
@@ -187,7 +152,7 @@
               <p class="column-meta">Columna de análisis</p>
               <h3>¿Y si calle Serrano fuera nuestro San Telmo?</h3>
               <p>“Calle Serrano tiene fachadas con historia, vecinos organizados, restaurantes dispuestos a trabajar y puestos de artesanos. Lo que le falta es gente, todos los fines de semana.”</p>
-              <p class="column-author">Maycol Gomez Vergara</p>
+              <p class="column-author">Maycol Gómez Vergara</p>
               <a class="text-link" href="columna%202%20.pdf" target="_blank" rel="noopener">Leer columna <span aria-hidden="true">↗</span></a>
             </div>
           </article>
@@ -197,7 +162,7 @@
               <p class="column-meta">Trabajo y salud mental · Economía</p>
               <h3>Que el desempleo no nos enferme</h3>
               <p>Maycol Gomez Vergara aborda el impacto del desempleo y las deudas en la salud mental, y plantea medidas de empleo, alivio financiero y atención para las familias.</p>
-              <p class="column-author">Maycol Gomez Vergara</p>
+              <p class="column-author">Maycol Gómez Vergara</p>
               <a class="text-link" href="columna%204.docx" target="_blank" rel="noopener">Leer columna <span aria-hidden="true">↗</span></a>
             </div>
           </article>
@@ -237,10 +202,10 @@
         </div>
         <div class="archive-grid">
           <figure class="archive-card">
-            <a href="Taller%201.jpeg" target="_blank" rel="noopener" aria-label="Abrir afiche del taller Salario, costo de la vida e inflación">
-              <img src="Taller%201.jpeg" alt="Afiche del taller Salario, costo de la vida e inflación, con lugar y fecha publicados." loading="lazy" decoding="async">
+            <a href="Taller%20suspendido.jpg" target="_blank" rel="noopener" aria-label="Abrir aviso oficial de suspensión del taller Salario, costo de la vida e inflación">
+              <img src="Taller%20suspendido.jpg" alt="Aviso oficial: el taller Salario, costo de la vida e inflación fue suspendido." loading="lazy" decoding="async">
             </a>
-            <figcaption><span>Afiche · Taller</span><strong>Salario, costo de la vida e inflación</strong></figcaption>
+            <figcaption><span>Actividad suspendida · 14 de noviembre de 2026</span><strong>Salario, costo de la vida e inflación</strong></figcaption>
           </figure>
           <figure class="archive-card">
             <a href="Taller%202.jpeg" target="_blank" rel="noopener" aria-label="Abrir programa de formación sobre panorama económico nacional">
@@ -258,10 +223,64 @@
           <p>Recorre las láminas originales sobre empleo en Valparaíso y el informe del PNUD sobre miedo al delito en Chile.</p>
         </div>
         <div class="carousels">
+          <section class="carousel-card" id="carrusel-desempleo" data-carousel="desempleo" aria-labelledby="unemployment-carousel-title">
+            <div class="carousel-heading">
+              <div>
+                <p class="section-kicker">01 · Trabajo y salud mental</p>
+                <h3 id="unemployment-carousel-title">Que el desempleo no nos enferme</h3>
+              </div>
+              <span class="carousel-count" data-carousel-status aria-live="polite">Lámina 1 de 7</span>
+            </div>
+            <figure class="carousel-figure">
+              <img data-carousel-image src="Redes%20sociales/Carrusel%205/1%20(1).png" alt="Portada de la columna de Maycol Gómez Vergara sobre desempleo y salud mental." loading="lazy" decoding="async">
+              <figcaption class="sr-only" data-carousel-caption>Lámina 1 del carrusel sobre desempleo y salud mental.</figcaption>
+            </figure>
+            <div class="carousel-controls">
+              <button type="button" data-carousel-prev aria-label="Ver lámina anterior">← Anterior</button>
+              <a class="text-link" data-carousel-open href="Redes%20sociales/Carrusel%205/1%20(1).png" target="_blank" rel="noopener">Abrir imagen <span aria-hidden="true">↗</span></a>
+              <button type="button" data-carousel-next aria-label="Ver lámina siguiente">Siguiente →</button>
+            </div>
+          </section>
+          <section class="carousel-card" id="carrusel-calle" data-carousel="calle" aria-labelledby="street-carousel-title">
+            <div class="carousel-heading">
+              <div>
+                <p class="section-kicker">02 · Coyuntura y participación social</p>
+                <h3 id="street-carousel-title">Noviembre en la calle</h3>
+              </div>
+              <span class="carousel-count" data-carousel-status aria-live="polite">Lámina 1 de 6</span>
+            </div>
+            <figure class="carousel-figure">
+              <img data-carousel-image src="Redes%20sociales/Carrusel%204/1.jpeg" alt="Portada de la columna de Yanino Riquelme sobre movilización social y el costo de gobernar de espaldas al malestar." loading="lazy" decoding="async">
+              <figcaption class="sr-only" data-carousel-caption>Lámina 1 del carrusel sobre movilización social.</figcaption>
+            </figure>
+            <div class="carousel-controls">
+              <button type="button" data-carousel-prev aria-label="Ver lámina anterior">← Anterior</button>
+              <a class="text-link" data-carousel-open href="Redes%20sociales/Carrusel%204/1.jpeg" target="_blank" rel="noopener">Abrir imagen <span aria-hidden="true">↗</span></a>
+              <button type="button" data-carousel-next aria-label="Ver lámina siguiente">Siguiente →</button>
+            </div>
+          </section>
+          <section class="carousel-card" id="carrusel-combustibles" data-carousel="combustibles" aria-labelledby="fuel-carousel-title">
+            <div class="carousel-heading">
+              <div>
+                <p class="section-kicker">03 · Economía y costo de la vida</p>
+                <h3 id="fuel-carousel-title">El golpe del combustible</h3>
+              </div>
+              <span class="carousel-count" data-carousel-status aria-live="polite">Lámina 1 de 10</span>
+            </div>
+            <figure class="carousel-figure">
+              <img data-carousel-image src="Redes%20sociales/Carrusel%203/1.png" alt="Portada del análisis sobre el alza de los combustibles y su impacto en el costo de la vida." loading="lazy" decoding="async">
+              <figcaption class="sr-only" data-carousel-caption>Lámina 1 del carrusel sobre combustibles y costo de la vida.</figcaption>
+            </figure>
+            <div class="carousel-controls">
+              <button type="button" data-carousel-prev aria-label="Ver lámina anterior">← Anterior</button>
+              <a class="text-link" data-carousel-open href="Redes%20sociales/Carrusel%203/1.png" target="_blank" rel="noopener">Abrir imagen <span aria-hidden="true">↗</span></a>
+              <button type="button" data-carousel-next aria-label="Ver lámina siguiente">Siguiente →</button>
+            </div>
+          </section>
           <section class="carousel-card" id="carrusel-empleo" data-carousel="empleo" aria-labelledby="employment-carousel-title">
             <div class="carousel-heading">
               <div>
-                <p class="section-kicker">01 · Mercado laboral</p>
+                <p class="section-kicker">04 · Mercado laboral</p>
                 <h3 id="employment-carousel-title">Valparaíso y Chile</h3>
               </div>
               <span class="carousel-count" data-carousel-status aria-live="polite">Lámina 1 de 10</span>
@@ -279,7 +298,7 @@
           <section class="carousel-card" id="carrusel-seguridad" data-carousel="seguridad" aria-labelledby="security-carousel-title">
             <div class="carousel-heading">
               <div>
-                <p class="section-kicker">02 · Observatorio de Seguridad</p>
+                <p class="section-kicker">05 · Observatorio de Seguridad</p>
                 <h3 id="security-carousel-title">El miedo al delito en Chile</h3>
               </div>
               <span class="carousel-count" data-carousel-status aria-live="polite">Lámina 1 de 9</span>
@@ -359,7 +378,7 @@
               </div>
               <div class="team-card-content">
                 <span class="team-badge team-badge--teal">Área Económica</span>
-                <h4>Maycol Gomez</h4>
+                <h4>Maycol Gómez</h4>
                 <p class="team-role">Director Área Económica</p>
                 <!-- ESPACIO RESERVADO: Reseña curricular / Bio ejecutiva (máx. 70 palabras) -->
                 <p class="team-bio team-bio--placeholder">Trayectoria académica, líneas de especialización y foco temático en Contenido Público.</p>
@@ -417,17 +436,6 @@
         <span class="ribbon-navy"></span>
       </div>
     </footer>
-
-    <dialog class="info-dialog" id="event-registration" aria-labelledby="event-dialog-title">
-      <div class="dialog-header">
-        <p class="section-kicker">Cartelera y talleres</p>
-        <button class="dialog-close" type="button" data-dialog-close aria-label="Cerrar ventana">×</button>
-      </div>
-      <h2 id="event-dialog-title">Consulta de inscripción</h2>
-      <p>El afiche del taller “Salario, costo de la vida e inflación” confirma su fecha y lugar, pero no informa cupos, costo ni un formulario de inscripción en línea.</p>
-      <p>Para confirmar disponibilidad e inscripción, consulta directamente al centro por su canal oficial.</p>
-      <a class="button button-dark" href="https://www.instagram.com/contenidopublico.valparaiso/" target="_blank" rel="noopener noreferrer">Consultar por Instagram <span aria-hidden="true">↗</span></a>
-    </dialog>
 
     <dialog class="info-dialog" id="project-application" aria-labelledby="application-dialog-title">
       <div class="dialog-header">

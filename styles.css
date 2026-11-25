@@ -735,6 +735,44 @@ button {
   font-size: 0.85rem;
 }
 
+.activity-notice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--red);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.activity-notice-icon {
+  display: grid;
+  width: 48px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: #f7e7e9;
+  color: var(--red);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.activity-notice h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.activity-notice p {
+  max-width: 700px;
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 .columns-grid {
   display: grid;
   grid-template-columns: 1.35fr 0.85fr;
@@ -962,7 +1000,7 @@ button {
 
 .carousels {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 1rem;
   margin-top: 2.2rem;
 }
@@ -1553,12 +1591,12 @@ button {
   }
 
   .carousels {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .carousel-card {
-    width: min(100%, 560px);
-    margin-inline: auto;
+    width: 100%;
+    margin: 0;
   }
 }
 
@@ -1648,7 +1686,26 @@ button {
     grid-column: auto;
   }
 
+  .activity-notice {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: 0.9rem;
+    padding: 1rem;
+  }
+
+  .activity-notice-icon {
+    width: 40px;
+  }
+
+  .activity-notice .text-link {
+    grid-column: 2;
+  }
+
   .archive-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousels {
     grid-template-columns: 1fr;
   }
 
